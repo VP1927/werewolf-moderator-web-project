@@ -3,14 +3,21 @@ body, html{
 
 }
 
-body h1,h2,h3{
-	font-family: 'Mali', cursive;
+h1{
+	font-family: 'Gloria Hallelujah', cursive;
+	font-size: 54px;
+	color: #FFFF00;
+}
+
+body h2,h3{
+	font-family: 'Courgette', cursive;
 	font-size: 42px;
 	color: #CCCC00;
 
 }
 body p,a{
-	font-family: 'PT Sans', sans-serif;
+	/*font-family: 'PT Sans', sans-serif;*/
+	font-family: 'Courgette', cursive;
 }
 
 body::before{
@@ -20,7 +27,7 @@ body::before{
 	left: 0;
 
 	width: 100%;height: 100%;
-	background-image: url(./img/werewolf.jpg);
+	background-image: url(../img/werewolf.jpg);
 	filter: blur(3px);
 	filter: alpha(opacity=50);
 	-webkit-filter: blur(3px);
@@ -44,7 +51,5 @@ body::before{
 .mainPage{
 	height: 100%;
 	position: relative;
-	background-color: violet;
-	
 }
 

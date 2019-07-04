@@ -1,6 +1,6 @@
 import React from 'react';
 //style
-import './Header.css';
+import '../style/Header.css';
 
 //import router
 import {

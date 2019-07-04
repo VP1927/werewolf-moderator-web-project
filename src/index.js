@@ -6,7 +6,8 @@ import ReactDOM from 'react-dom';
 
 //import style
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './template.css'
+import './style/template.css'
+import './style/Homepage.css'
 //only index need to inport style and font
 
 
@@ -36,7 +37,7 @@ class App extends React.Component{
 					<Route path ='/about' component = {About}/>
 					<Route path ='/cl' component = {CardList}/>
 					<Route path ='/rule' component = {Rule}/>
-					<Route path ='/game' exact component = {Game}/>
+					<Route path ='/setup' exact component = {Game}/>
 				</Router>
 			</div>
 		)

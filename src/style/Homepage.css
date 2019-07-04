@@ -1,0 +1,49 @@
+.main{
+	margin-top: 75px;
+	text-align: center;
+	position: relative;
+}
+
+.main h1{
+	font-size: 64px;
+	font-family: 'Pacifico', cursive;
+	font-style: italic;
+	margin-bottom: 10px;
+}
+
+.main .descrip p{
+	margin-top: 10px;
+	font-size: 16px;
+	font-family: 'Courgette', cursive;
+	color: #CCCCCC;
+	width: 50%;
+
+}
+
+.main .setupBtn{
+	margin-top: 100px;
+	width: 200px;
+	height: 100px;
+	background-color: #CCCC00;
+
+	border-style: solid;
+	border-color: #333300;
+	border-radius: 10%;
+	border-width: 5px;
+
+	text-align: center;
+
+	font-family: 'Courgette', cursive;
+	font-size: 42px;
+	color: #9400D3;
+
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.main .setupBtn:hover{
+	background-color: #FFFF00;
+	transition: 0.5s;
+
+	font-size: 48px;
+	color: #9400D3;	
+}
