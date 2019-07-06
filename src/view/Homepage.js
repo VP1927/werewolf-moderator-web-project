@@ -2,9 +2,6 @@ import React from 'react';
 //import router
 import {
   Link,
-  NavLink,
-  Switch,
-  Redirect
 } from "react-router-dom";
 
 class Main extends React.Component {

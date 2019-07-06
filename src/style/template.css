@@ -37,11 +37,19 @@ body::before{
 	background-repeat: no-repeat;
 	background-position: center top;
 }
-.root{
+
+.body {
 	position: relative;
+	/*height: 100vh;*/
+}
+
+.fail{
+	text-align: center;
+	padding-top: 10vh;
 }
 
 .name{
+
 	font-family: 'Pacifico', cursive;
 	font-size: 42px;
 	color:#FFFF00 !important;
