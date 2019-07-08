@@ -6,27 +6,20 @@ import {
   BrowserRouter as Router,
   Route,
   Link,
-  NavLink,
   Switch,
   Redirect
 } from "react-router-dom";
 //import component
 // import Header from '../components/Header'
 
-class Game extends React.Component{
-	constructor(props){
-		super(props);
-		this.state = {
-			pNum  : '',
-			player: [],
-			card  : [],
-		}
-	}l
+const globalState = {
+	pNum  : 0,
+	players: [],
+	cards  : [],
 
-	handleChange(evt){
-		const num = (evt.target.validity.valid) ? evt.target.value : this.state.pNum;
-		this.state.pNum = num;
-	}
+}
+
+class Game extends React.Component{
 
 	render (){
 		return (
@@ -43,10 +36,101 @@ class Game extends React.Component{
 }
 
 class PlayerSt extends React.Component{
+
+	constructor(props){
+		super(props);
+		this.state= {
+			value :'',
+			playersList : {},
+		}
+
+	    this.handleChange = this.handleChange.bind(this);
+	    this.handleSubmit = this.handleSubmit.bind(this);
+	    this.inputName = this.inputName.bind(this);
+	    this.handleSubmitName = this.handleSubmitName.bind(this);
+	}
+
+	handleChange(event) {
+		const num = (event.target.validity.valid) ? event.target.value : this.state.value;
+    	this.setState({value: num});
+  	}
+
+    handleSubmit(event) {
+    	globalState.pNum = parseInt(this.state.value,10);
+    	this.setState({value : ''});
+    	// alert('type of value ' + typeof globalState.pNum + ' is ' + globalState.pNum);
+    	event.preventDefault();
+  	}
+
+  	inputName(event){
+  		let value = event.target.value;
+  		let name = event.target.name;
+		this.setState(prevState => {
+		  let playersList = {...prevState.playersList}  // creating copy of state variable name
+		  playersList[name] = value;                     // update the name property, assign a new value     
+		  return { playersList };                                 // return new object name object
+		})
+
+    	event.preventDefault();
+  	}
+
+  	genForm(number){
+  		let table = [];
+  		// this.state.name = [];
+
+  		for (let i = 0;i<number;i++){
+  			// this.state.name.push([]);
+  			table.push(
+  				<li key={i}>
+  					<label key={i}>
+        			Player {i+1} name: 
+          			<input type="text" onChange={this.inputName} id='inputNumber' name={'player_' + (i+1)} key={i} />
+        		</label>
+  				</li>
+  			)
+  		}
+  		if (globalState.pNum >0){
+  			table.push(<input type="submit" value="Submit" key='input'/>);
+  		}
+  		return table;
+  	}
+
+  	handleSubmitName(event){
+  		globalState.players = [];
+  		let list = this.state.playersList;
+  		let i = 0;
+  		var player;
+  		for (player in list){
+  			let p = {
+  				id : i,
+  				name : list[player],
+  				role : '',
+  			}
+  			globalState.players.push(p);
+  			i += 1;
+  		}
+  		// alert(globalState.players[0].name);
+  		event.preventDefault();
+
+  	}
+
 	render (){
 		return (
-			<div>
-				<h1>NAvi</h1>
+			<div className='container'>
+	     		<form onSubmit={this.handleSubmit}>
+	        		<label>
+	        			Number of player:
+	          			<input type="text" pattern="[0-9]*" onChange={this.handleChange} value={this.state.value}  id='inputNumber'/>
+	        		</label>
+	        		<input type="submit" value="Submit" />
+
+	      		</form>
+
+	      		<form onSubmit={this.handleSubmitName}>
+	      		    <ul>
+		        		{this.genForm(globalState.pNum)}
+	        		</ul>
+	      		</form>
 			</div>
 		)
 	}
