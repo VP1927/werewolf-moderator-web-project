@@ -32,7 +32,7 @@ class CardList extends React.Component {
 				<div className='list container'>
 					<ul className='row'>
 					{hits.map(hit =>
-						<li key={hit.idcard} className='col-sm-3'>
+						<li key={hit.idcard} className='col-lg-3'>
 							<div className="item" id='f1_container' key={hit.idcard}>
 								<div className='content'>
 									<div id="f1_card" className="shadow" key={hit.idcard}>

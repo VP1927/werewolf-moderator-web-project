@@ -44,7 +44,7 @@
     height: 100%;
     transform-style: preserve-3d;
     transition: all 0.5s linear;
-    border: 2px solid #ccc;
+    border: 2px solid #808080;
     box-shadow: 2px 2px 2px #aaa 4px 4px 4px #ccc ;
 }
 
