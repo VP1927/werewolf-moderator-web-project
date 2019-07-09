@@ -1,0 +1,63 @@
+#mainNav{
+	background-color: transparent;
+	position: relative;
+	height: 100%;
+}
+
+#mainNav::before{
+	content: "";
+	position: absolute;
+	top:0;
+	left: 0;
+
+	width: 100%;height: 100%;
+
+	background-color: rgba(99,43,108,0.7);
+	filter: blur(25px);
+}
+
+#mainNav .container{
+	position: relative;
+}
+
+.linkList{
+	height: 100%;
+}
+
+.header{
+	height: 100px;
+	margin-bottom: 25px;
+}
+
+.header a{
+	color: #CCCC00;
+	text-decoration: none;
+}
+
+.header .nav-link{
+	font-family: 'Mali', cursive;
+	display: block;
+	width: 120px;
+}
+
+.header .nav-link:hover{
+	font-style: italic;
+}
+
+.header .name{
+
+	font-size: 2.25rem;
+}
+
+.navbar-expand-lg .navbar-nav .nav-link{
+	font-family: 'Pacifico', cursive;
+	font-size: 1rem	;
+	color: #CCCC00;
+}
+
+.nav-item{
+	width: 100px;
+	height: 100%;
+	margin: 15px;
+	text-align: center;
+}

@@ -6,7 +6,10 @@ import ReactDOM from 'react-dom';
 
 //import style
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './template.css'
+import './style/template.css'
+import './style/About.css'
+// import './style/CardList.css'
+import './style/Homepage.css'
 //only index need to inport style and font
 
 
@@ -22,24 +25,45 @@ import Game from './view/Game';
 import {
   BrowserRouter as Router,
   Route,
+  Switch,
+  Redirect,
 } from "react-router-dom";
 
 
 class App extends React.Component{
 	render(){
 		return (
-			<div className='body'>
-				<Router>
-				<Header />
+		<Router>
 
-					<Route path ='/' exact component = {Main}/>
-					<Route path ='/about' component = {About}/>
-					<Route path ='/cl' component = {CardList}/>
-					<Route path ='/rule' component = {Rule}/>
-					<Route path ='/game' exact component = {Game}/>
-				</Router>
+			<div className='body'>
+				<Header />
+					<Switch>
+						<Route path ='/' exact component = {Main}/>
+						<Route path ='/about' component = {About}/>
+						<Route path ='/cl' component = {CardList}/>
+						<Route path ='/rule' component = {Rule}/>
+						<Route path ='/setup' component = {Game}/>
+
+						
+
+						<Route component = {NotFound} />
+					</Switch>
+
 			</div>
+		</Router>
 		)
+	}
+}
+
+class NotFound extends React.Component{
+	render(){
+		return (
+			<div className = 'body fail'>
+				<h1>
+					LINK NOT FOUND
+				</h1>
+			</div>
+			)
 	}
 }
 
