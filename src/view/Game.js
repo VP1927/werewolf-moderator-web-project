@@ -81,16 +81,16 @@ class PlayerSt extends React.Component{
   		for (let i = 0;i<number;i++){
   			// this.state.name.push([]);
   			table.push(
-  				<li key={i}>
-  					<label key={i}>
-        			Player {i+1} name: 
-          			<input type="text" onChange={this.inputName} id='inputNumber' name={'player_' + (i+1)} key={i} />
-        		</label>
-  				</li>
+  				// <li key={i}>
+  					<label key={i} className=' col-sm-3'>
+	        			Player {i+1} name: 
+	          			<input type="text" onChange={this.inputName} class='inputName' name={'player_' + (i+1)} key={i} />
+	        		</label>
+  				// </li>
   			)
   		}
   		if (globalState.pNum >0){
-  			table.push(<input type="submit" value="Submit" key='input'/>);
+  			table.push(<input type="submit" value="Submit" key='input' id='summitBtn'/>);
   		}
   		return table;
   	}
@@ -117,7 +117,7 @@ class PlayerSt extends React.Component{
 	render (){
 		return (
 			<div className='container'>
-	     		<form onSubmit={this.handleSubmit}>
+	     		<form onSubmit={this.handleSubmit} className='number-summit'>
 	        		<label>
 	        			Number of player:
 	          			<input type="text" pattern="[0-9]*" onChange={this.handleChange} value={this.state.value}  id='inputNumber'/>
@@ -126,10 +126,10 @@ class PlayerSt extends React.Component{
 
 	      		</form>
 
-	      		<form onSubmit={this.handleSubmitName}>
-	      		    <ul>
-		        		{this.genForm(globalState.pNum)}
-	        		</ul>
+	      		<form onSubmit={this.handleSubmitName} className='name-summit'>
+		      		<div className='row'>
+			        	{this.genForm(globalState.pNum)}
+	      			</div>
 	      		</form>
 			</div>
 		)

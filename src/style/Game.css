@@ -3,6 +3,21 @@
 	position: relative;
 	background-color: rgba(0,0,0,.8);
 }
+
 label{
 	color: #CCCC00;
+}
+
+.number-summit{
+	text-align: center;
+	font-size: 1.2rem;
+}
+
+.number-summit #inputNumber{
+	width: 250px;
+	margin: 0px 15px;
+}
+
+#summitBtn{
+	text-align: center;
 }

@@ -7,6 +7,8 @@ import ReactDOM from 'react-dom';
 //import style
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './style/template.css'
+import './style/About.css'
+// import './style/CardList.css'
 import './style/Homepage.css'
 //only index need to inport style and font
 

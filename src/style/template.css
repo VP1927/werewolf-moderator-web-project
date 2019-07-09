@@ -1,23 +1,32 @@
 body, html{
 	height: 100%;
-	font-family: 'Courgette', cursive;
+	font-family: 'Pacifico', cursive;
 }
 
 h1{
-	font-family: 'Gloria Hallelujah', cursive;
-	font-size: 54px;
+	font-family: 'Courgette', cursive;
+	font-size: 3rem;
+	color: #FFFF00;
+}
+h2{
+	font-family: 'Courgette', cursive;
+	font-size: 2.5em;
+	color: #FFFF00;
+}
+h3{
+	font-family: 'Courgette', cursive;
+	font-size: 2rem;
+	color: #FFFF00;
+}
+h4{
+	font-family: 'Courgette', cursive;
+	font-size: 1.5em;
 	color: #FFFF00;
 }
 
-body h2,h3{
-	font-family: 'Courgette', cursive;
-	font-size: 42px;
-	color: #CCCC00;
-
-}
 body p,a{
 	/*font-family: 'PT Sans', sans-serif;*/
-	font-family: 'Courgette', cursive;
+	font-family: 'Gloria Hallelujah', cursive;
 	font-size: 12px;
 	color: #CCCC00;
 }
@@ -29,10 +38,17 @@ body::before{
 	left: 0;
 
 	width: 100%;height: 100%;
-	background-image: url(../img/werewolf.jpg);
-	filter: blur(3px);
-	filter: alpha(opacity=50);
-	-webkit-filter: blur(3px);
+
+	background-image: 
+	    linear-gradient(
+			to bottom,
+			rgba(0,0,0, 0),
+			rgba(0,0,0, 100)
+	    ), 
+	    url(../img/darknight.jpg);
+
+	/*filter: blur(3px);*/
+	/*-webkit-filter: blur(3px);*/
 
 
 	background-size: cover;
@@ -63,3 +79,6 @@ body::before{
 	position: relative;
 }
 
+.pageName{
+	text-align: center;
+}
