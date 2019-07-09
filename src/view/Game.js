@@ -23,6 +23,7 @@ class Game extends React.Component{
 
 	render (){
 		return (
+			<div className= 'container-fluid mainPage'>
 			<Router>
 				<Switch>
 				<Redirect from="/setup" exact to="/setup/player" />
@@ -31,6 +32,7 @@ class Game extends React.Component{
 				<Route path ='/setup/game' component = {Werewolf}/>
 				</Switch>
 			</Router>
+			</div>
 		)
 	}
 }
@@ -90,7 +92,13 @@ class PlayerSt extends React.Component{
   			)
   		}
   		if (globalState.pNum >0){
-  			table.push(<input type="submit" value="Submit" key='input' id='summitBtn'/>);
+  			table.push(
+  				<div className='row'>
+	  				<div className='col-sm-5'/>
+	  				<input type="submit" value="Submit" key='input' className='summitBtn col-sm-2'/>
+	  				<div className='col-sm-5'/>
+	  			</div>
+  			);
   		}
   		return table;
   	}

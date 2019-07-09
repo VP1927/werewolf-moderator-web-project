@@ -27,22 +27,29 @@ class CardList extends React.Component {
 		}
 
 		return (
-			<div className="list container-fluid">
-				<ul>
+			<div className="container-fluid mainPage">
+				<h1 className= 'pageName'> Card list </h1>
+				<div className='list container'>
+					<ul className='row'>
 					{hits.map(hit =>
-						<li key={hit.idcard}>
-							<div className="item" id='f1_container'>
-								<div id="f1_card" class="shadow">
-									<div class="front face">
-										<img src={hit.imageLink} alt='pic'></img>								{/* <h4 class="card-title">Sunlimetech</h4> */}
-									</div>
-									<div class="back face center">
-										<p>{hit.description}</p>
+						<li key={hit.idcard} className='col-sm-3'>
+							<div className="item" id='f1_container' key={hit.idcard}>
+								<div className='content'>
+									<div id="f1_card" className="shadow" key={hit.idcard}>
+										<div className="front face" key={hit.idcard}>
+											<img src={hit.imageLink} alt='pic' key={hit.idcard}/>
+											{/* <h4 class="card-title">Sunlimetech</h4> */}
+										</div>
+										<div className="back face center" key={hit.idcard}>
+											<p key={hit.idcard} >{hit.description}</p>
+										</div>
 									</div>
 								</div>
 							</div>
-						</li>)}
-				</ul>
+						</li>)
+					}
+					</ul>
+				</div>
 			</div>
 
 		)

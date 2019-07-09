@@ -8,8 +8,9 @@ import ReactDOM from 'react-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './style/template.css'
 import './style/About.css'
-// import './style/CardList.css'
+import './style/CardList.css'
 import './style/Homepage.css'
+import './style/Rule.css'
 //only index need to inport style and font
 
 
@@ -37,6 +38,7 @@ class App extends React.Component{
 
 			<div className='body'>
 				<Header />
+				<img src='darknight.jpg' className='bg' alt=''/>
 					<Switch>
 						<Route path ='/' exact component = {Main}/>
 						<Route path ='/about' component = {About}/>
@@ -58,7 +60,7 @@ class App extends React.Component{
 class NotFound extends React.Component{
 	render(){
 		return (
-			<div className = 'body fail'>
+			<div className = 'container-fluid mainPage fail'>
 				<h1>
 					LINK NOT FOUND
 				</h1>
