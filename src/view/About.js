@@ -12,7 +12,7 @@ class About extends React.Component{
 								<div className='content'>
 									<div id="f1_card" className="shadow">
 										<div className="front face">
-											<img className=" img-fluid" src="images/backside2.jpg" alt=''/>
+											<img className=" img-fluid" src={require('../images/backside2.jpg')} alt=''/>
 										</div>
 										<div className="back face center">
 											<p>After playing werewolves boardgame for 5 years,
@@ -33,7 +33,7 @@ class About extends React.Component{
 								<div className='content'>
 									<div id="f1_card" className="shadow">
 										<div className="front face">
-											<img className=" img-fluid" src="images/backside2.jpg" alt='' />
+											<img className=" img-fluid" src={require('../images/backside2.jpg')} alt='' />
 										</div>
 										<div className="back face center">
 											<p>After playing werewolves boardgame for 5 years,
@@ -54,7 +54,7 @@ class About extends React.Component{
 								<div className='content'>
 									<div id="f1_card" className="shadow">
 										<div className="front face">
-											<img className=" img-fluid" src="images/backside2.jpg" alt='' />
+											<img className=" img-fluid" src={require('../images/backside2.jpg')} alt='' />
 										</div>
 										<div className="back face center">
 											<p>After playing werewolves boardgame for 5 years,

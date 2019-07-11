@@ -27,7 +27,7 @@
 }
 
 .list li {
-    flex: 1 0 calc(25% - 10px);
+    /*flex: 1 0 calc(25% - 10px);*/
     margin-bottom: 25px;
 }  
 /*

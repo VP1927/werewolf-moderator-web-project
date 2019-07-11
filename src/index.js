@@ -27,7 +27,6 @@ import {
   BrowserRouter as Router,
   Route,
   Switch,
-  Redirect,
 } from "react-router-dom";
 
 
@@ -38,7 +37,7 @@ class App extends React.Component{
 
 			<div className='body'>
 				<Header />
-				<img src='darknight.jpg' className='bg' alt=''/>
+				<img src={require('./images/darknight.jpg')} className='bg' alt=''/>
 					<Switch>
 						<Route path ='/' exact component = {Main}/>
 						<Route path ='/about' component = {About}/>

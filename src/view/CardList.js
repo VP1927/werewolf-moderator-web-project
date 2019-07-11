@@ -26,22 +26,24 @@ class CardList extends React.Component {
 			return <p>Loading...</p>;
 		}
 
+		else {
+			console.log(hits);
 		return (
 			<div className="container-fluid mainPage">
 				<h1 className= 'pageName'> Card list </h1>
 				<div className='list container'>
 					<ul className='row'>
 					{hits.map(hit =>
-						<li key={hit.idcard} className='col-lg-3'>
-							<div className="item" id='f1_container' key={hit.idcard}>
+						<li key={hit.idCard} className='col-lg-3'>
+							<div className="item" id='f1_container' key={hit.idCard}>
 								<div className='content'>
-									<div id="f1_card" className="shadow" key={hit.idcard}>
-										<div className="front face" key={hit.idcard}>
-											<img src={hit.imageLink} alt='pic' key={hit.idcard}/>
+									<div id="f1_card" className="shadow" key={hit.idCard}>
+										<div className="front face" key={hit.idCard}>
+											<img src={require=('' + hit.imageLink)} alt='pic' key={hit.idCard}/>
 											{/* <h4 class="card-title">Sunlimetech</h4> */}
 										</div>
-										<div className="back face center" key={hit.idcard}>
-											<p key={hit.idcard} >{hit.description}</p>
+										<div className="back face center" key={hit.idCard}>
+											<p key={hit.idCard} >{hit.description}</p>
 										</div>
 									</div>
 								</div>
@@ -52,7 +54,7 @@ class CardList extends React.Component {
 				</div>
 			</div>
 
-		)
+		)}
 	}
 }
 
