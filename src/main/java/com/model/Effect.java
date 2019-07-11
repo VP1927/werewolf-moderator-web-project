@@ -21,7 +21,7 @@ public class Effect {
 	@Column(name = "one_turn_effect", length = 2, nullable = false)
 	private int oneTurnEffect;
 
-	@Column(name = "first_turn_effect", length = 2, nullable = false)
+	@Column(name = "first_turn_c", length = 2, nullable = false)
 	private int firstTurnEffect;
 
 	@Column(name = "multitime", length = 2, nullable = false)
