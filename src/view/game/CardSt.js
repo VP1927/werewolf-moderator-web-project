@@ -56,12 +56,13 @@ class CardSt extends React.Component{
 	  	let sum = 0;
 
   		for (chosen in chosenList){
-  			sum += chosenList[chosen];
+  			sum += parseInt(chosenList[chosen]);
   		}
+	  	console.log(sum + ' ' + globalState.pNum);
 
-  		if ((globalState.pNum < sum) && (sum < globalState.pNum+2)){
+
+  		if ((globalState.pNum <= sum) && (sum <= globalState.pNum+2)){
   			for (var i=0;i<globalState.pNum;i++) pList.push(i);
-;
 
 	  		for (chosen in chosenList){
 				for (let i=0;i<chosenList[chosen]; i++){
@@ -74,12 +75,13 @@ class CardSt extends React.Component{
 					}
 					
 					var player = this.findPlayer(Pid);
-
 		  			player.role = this.state.cardList[chosen];
-
+		  			// console.log(player.name + ': ' + player.role.role);
 				}		
 	  		}
-
+	  		alert('starting game');
+	  		let path = '/setup/game';
+  			this.props.history.push(path);
   		}
   		else {
 	  		alert('The number of card is not sufficient, number of card should vary between the number of players and that number including 2 to 3 extra cards');

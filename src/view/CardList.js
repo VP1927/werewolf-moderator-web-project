@@ -39,12 +39,12 @@ class CardList extends React.Component {
 								<div className='content'>
 									<div id="f1_card" className="shadow" key={hit.idCard}>
 										<div className="front face" key={hit.idCard}>
-											<img src={require=('' + hit.imageLink)} alt='pic' key={hit.idCard}/>
+											<img src={hit.imageLink} alt='pic' key={hit.idCard}/>
 											{/* <h4 class="card-title">Sunlimetech</h4> */}
 										</div>
-										<div className="back face center" key={hit.idCard}>
-											<p key={hit.idCard} >{hit.description}</p>
-										</div>
+										<div className="back face center" key={'back' + hit.idCard}>
+											<p key={'back' + hit.idCard} >{hit.description}</p>
+										</div>''
 									</div>
 								</div>
 							</div>

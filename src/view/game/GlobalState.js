@@ -9,7 +9,6 @@
 
 // currently using markup test data
 
-
 const globalState = {
 	pNum  : 9,
 	players: [

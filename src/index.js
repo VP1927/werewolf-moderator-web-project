@@ -16,7 +16,7 @@ import './style/Rule.css'
 
 import Header from './components/Header';
 
-
+import NotFound from './view/NotFound';
 import Main from './view/Homepage';
 import About from './view/About';
 import CardList from './view/CardList';
@@ -55,19 +55,6 @@ class App extends React.Component{
 		)
 	}
 }
-
-class NotFound extends React.Component{
-	render(){
-		return (
-			<div className = 'container-fluid mainPage fail'>
-				<h1>
-					LINK NOT FOUND
-				</h1>
-			</div>
-			)
-	}
-}
-
 
 ReactDOM.render(
   <App />,
