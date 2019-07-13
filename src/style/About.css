@@ -68,7 +68,7 @@
 
 .card-title{
     position: relative;
-    bottom: 0;
+    top: 10px;
 
 /*    z-index: 2;
     top: 50%;
@@ -77,7 +77,7 @@
     opacity: 1;
     transition-delay: 0.25s;
 
-    color: darkviolet;
+    color: #CCCC00;
 }
 
 .face.back {

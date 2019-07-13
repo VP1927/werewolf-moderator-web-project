@@ -11,14 +11,32 @@ import globalState from './GlobalState'
 //     ]
 // };
 
+class Eff extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            isSeleted: false,
+        }
+    }
+
+    handleClick(e){
+        this.props.click(e);
+        this.setState({isSeleted:!this.state.isSeleted})
+    }
+
+    render (){
+        return (
+            <img src={this.props.source} alt={this.props.name} onClick={(e)=> this.handleClick(e)} className={this.state.isSeleted?'selected icon':'icon'} />
+        )
+    }
+}
+
 class Effect extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             effects: [],
         }
-
-        // this.handleEffect = this.handleEffect.bind(this);
     }
 
     componentDidMount() {
@@ -30,22 +48,23 @@ class Effect extends React.Component {
     }
 
     handleEffect(e, effect) {
-    	if (this.props.phase === 'night'){
-    		this.props.onHandleEffect(effect.name);
+        if (this.props.phase === 'night'){
+            this.props.onHandleEffect(effect.name);
 
-	        if (!effect.multitime) {
-	            this.setState({
-	                effects: this.state.effects.filter(function (eff) {
-	                    return eff !== effect;
-	                })
-	            })
-	        }
-    	}
+            if (!effect.multitime) {
+                this.setState({
+                    effects: this.state.effects.filter(function (eff) {
+                        return eff !== effect;
+                    })
+                })
+            }
+        }
 
     }
 
     render() {
         const { effects } = this.state;
+        // console.log(this.state.effects)
 
         if (!effects) return null;
         else
@@ -54,8 +73,9 @@ class Effect extends React.Component {
                     <ul>
                         {effects.map(effect =>
                             <li key={effect.ideffect}>
-                                <img className='icon' src={effect.iconLink} name={effect.name} onClick={(e) => this.handleEffect(e, effect)} alt = 'effect' />
-                            </li>)}
+                                <Eff source={effect.iconLink} name={effect.name} click={(e) => this.handleEffect(e, effect)} />
+                            </li>
+                        )}
                     </ul>
                 </div>
             );
@@ -66,6 +86,7 @@ class MainGame extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            effects: [],
             cards: [],
             players: globalState.players,
             phase: 'night',
@@ -118,12 +139,17 @@ class MainGame extends React.Component {
         fetch('http://localhost:8080/cardlist')
             .then(response => response.json())
             .then(data => this.setState({ cards: data }))
+
+        // let link = 'http://localhost:8080/effect/' + this.props.idcard;
+        // fetch(link)
+        //     .then(response => response.json())
+        //     .then(data => this.setState({ effects: Array.from(data) }));
     }
 
     handleEffect(effect) {
-    	if (this.state.phase ==='night'){
-	        this.setState({ currentState: effect });
-    	}
+        if (this.state.phase ==='night'){
+            this.setState({ currentState: effect });
+        }
     }
 
     handleAffected(player) {
@@ -142,7 +168,7 @@ class MainGame extends React.Component {
                     });
                 }
                 if (this.state.couple.length === 1) {
-                	this.setState({currentState: ''});
+                    this.setState({currentState: ''});
                 }
 
             }
@@ -231,7 +257,9 @@ class MainGame extends React.Component {
 
                 this.setState({
                     phase: 'night',
-                    effectState: {},
+                    effectState: this.state.effectState.filter((effect) =>{
+                        return !effect.oneTurnEffect
+                    }),
                     currentState: '',
                     // summary: {
                     //     deaths: [...new Set(deaths)],
@@ -247,7 +275,9 @@ class MainGame extends React.Component {
                 
                 this.setState({
                     phase: 'night',
-                    effectState: {},
+                    effectState: this.state.effectState.filter((effect) =>{
+                        return !effect.oneTurnEffect
+                    }),
                     currentState: '',
                 });
             }
@@ -255,10 +285,16 @@ class MainGame extends React.Component {
     }
 
     render() {
-        const cards = this.state.cards;
+        const cards = this.state.cards.filter((card) => {
+                return globalState.cards.indexOf(card.idCard) !== -1
+            })
+
+
         // this.state.players.forEach((player)=>console.log(player.role))
         if (!cards) return null;
         let winner = this.calculateWinning();
+
+        console.log(this.state.cards)
         if (winner){
             return (
                 <div className='container-fluid mainPage'>
@@ -270,7 +306,8 @@ class MainGame extends React.Component {
             )
         }
 
-        else return (
+        else 
+            return (
             <div className='container-fluid mainPage'>
                 <h1 className= 'pageName'> Main Game </h1>            
                 <div className='container GamePlay'>
@@ -287,14 +324,14 @@ class MainGame extends React.Component {
                                 </ul>
                             </div>
                             <div className='col-sm-8'>
-                            	<div className='container'>
+                                <div className='container'>
                                 <ul className='row player'>
                                     {this.state.players.map(player =>
                                         <li key={player.id} onClick={() => this.handleAffected(player)} className='col-sm-3' >
-    	                                    <h3 className='pName'>{player.name}</h3>
-                                        	<div className='image'>
-    	                                        <img src={player.role.imageLink} />
-    	                                    </div>
+                                            <h3 className='pName'>{player.name}</h3>
+                                            <div className='image'>
+                                                <img src={player.role.imageLink} />
+                                            </div>
                                         </li>)}</ul>
                                 </div>
                             </div>

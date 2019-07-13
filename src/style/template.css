@@ -94,3 +94,7 @@ ul{
 	text-align: center;
 	margin-bottom: 5vh;
 }
+
+.descrip p{
+	font-style: italic;
+}
